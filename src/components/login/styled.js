@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import backgroundImage from '../../assets/images/TurtleLogIn.png'
+
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('https://www.navarsol.com/assets/images/maletas%20viaje.jpg');
+  background-image: url(${backgroundImage});
   background-size: cover;
   width: 100%;
   height: 100vh;

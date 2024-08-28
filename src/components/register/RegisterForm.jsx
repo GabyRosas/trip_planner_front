@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Container, FormWrapper, Title, Input, Button, LinkStyled } from "../login/styled"; 
 
 
