@@ -1,20 +1,26 @@
-import React from 'react';
-import { Container, FormWrapper, Title, Input, Button, LinkStyled } from "../login/styled"; 
-
+import React from "react";
+import {
+  Container,
+  FormWrapper,
+  Title,
+  Input,
+  Button,
+  LinkStyled,
+} from "../login/styled";
 
 const RegisterFom = () => {
-    return (
+  return (
     <Container>
-        <FormWrapper>
+      <FormWrapper>
         <Title>Create your account</Title>
-        <Input type="user" placeholder="user name"/>
+        <Input type="user" placeholder="user name" />
         <Input type="email" placeholder="Email Address" />
         <Input type="password" placeholder="Password" />
-        <Button>Sing Up</Button>
+        <Button>Sign Up</Button>
         <LinkStyled to="/login">Already have an account? Log In</LinkStyled>
-        </FormWrapper>
+      </FormWrapper>
     </Container>
-    );
+  );
 };
 
 export default RegisterFom;
