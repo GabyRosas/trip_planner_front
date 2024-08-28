@@ -1,10 +1,9 @@
 import React from 'react'; 
 import { But } from './styled-button';
 
-const  Button = ({nameButton}) => {
+const  Button = ({ to, nameButton}) => {
     return (
-        <But>{nameButton}</But>
-
+        <But to={to}>{nameButton}</But>
     );
 };
 

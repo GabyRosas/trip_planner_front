@@ -7,13 +7,14 @@ import TripPlannerLogo from '../assets/images/TripPlannerLogo.svg';
 import { Body, Logo, TripPlanner, Title, Img } from '../styled/styled-home.jsx';
 
 
+
 const Home = () => {
   return (
     <Body>
       <Logo src={EarthLogoImage} alt="Logo"></Logo>
       <TripPlanner src={TripPlannerLogo} alt="TripPlanner"></TripPlanner>
       <Title>Creating your perfect itinerary</Title>
-      <Button nameButton="Get started"/>
+      <Button to="/login" nameButton="Get started"/>
       <Img src={BallonsImage} alt="Ballons"></Img> 
       <Img src={MapImage} alt="Map"></Img>
       </Body>

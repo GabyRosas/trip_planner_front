@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'; 
 
-export const But = styled.button`
+
+
+export const But = styled(Link)`
 padding: 15px 90px;
 font-size: 16px;
 color: #007A8C;
@@ -9,7 +12,7 @@ border: none;
 border-radius: 50px;
 cursor: pointer;
 transition: background-color 0.3s ease;
-ext-decoration: none;
+text-decoration: none;
 font-weight: bold;
 margin-bottom: 20px;
 
