@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Container, FormWrapper, Title, Input, Button, LinkStyled } from "../login/styled";
 import { useState } from 'react';
@@ -44,3 +45,5 @@ onChange={handleChange} placeholder="Password"/>
 };
 
 export default RegisterForm;
+
+
