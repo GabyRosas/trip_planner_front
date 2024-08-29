@@ -19,7 +19,7 @@ export const InfoBar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  margin: 0;
+  margin-top: 15px;
 `;
 
 export const Title = styled.h1`
@@ -63,15 +63,15 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  margin-top: 80px;
+  margin-top: 100px;
   transition: background-color 0.3s ease;
 `;
 
 export const Label = styled.label`
   color: white;
   font-size: 20px;
-  margin-top: 35px;
+  margin-top: 25px;
   margin-bottom: 15px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Inter', sans-serif
+  font-family: 'Inter', sans-serif
 `;
