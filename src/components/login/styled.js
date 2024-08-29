@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   background: white;
   padding: 20px;
   border-radius: 8px;

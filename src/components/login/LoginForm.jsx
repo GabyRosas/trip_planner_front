@@ -1,15 +1,24 @@
 import React from 'react';
 import { Container, FormWrapper, Title, Input, Button, LinkStyled } from "./styled";
+import { useState } from 'react';
+
 
 const LoginForm = () => {
-    return (
+const [username, setUsername] = useState(""); 
+const [password, setPassword] = useState("");
+
+const handleSubmit = (e) => {
+e.preventDefault()
+// aqui hacemos la peticion al back
+}
+return (
     <Container>
-        <FormWrapper>
+        <FormWrapper onSubmit={handleSubmit} >
         <Title>Your account</Title>
-        <Input type="email" placeholder="Email Address" />
-        <Input type="password" placeholder="Password" />
+        <Input type="text"  name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username" />
+        <Input type="password"  name="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Password" />
         <LinkStyled>Forgot password?</LinkStyled>
-        <Button>Log In</Button>
+        <Button type="submit">Log In</Button>
         <LinkStyled to="/Register">I don’t have an account</LinkStyled>
         </FormWrapper>
     </Container>
