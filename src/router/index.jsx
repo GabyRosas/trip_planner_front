@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
 import RegisterFom from "../components/register/RegisterForm";
 import Form from "../pages/Form";
-
+import ButtonItineraries from "../components/itinerariesButton/ItinerariButton";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: "/form",  
                 element: <Form />  
+            },
+            {
+                path: "/itineraries",  
+                element: <ButtonItineraries />  
             },
         ],
     },
