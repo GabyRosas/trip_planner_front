@@ -7,8 +7,8 @@ export const But = styled(Link)`
 display: flex;
 align-items: flex-start;
 justify-content: center;
-background-color: #007A8C;
-color: #FFFFFF;
+background-color: ${({ backgroundColor }) => backgroundColor || '#007A8C'};
+color: ${({ textColor }) => textColor || 'white'};
 font-size: 16px;
 border: none;
 border-radius: 30px;
