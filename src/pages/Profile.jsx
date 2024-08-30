@@ -6,8 +6,7 @@ import PersonalInfo from "../../src/assets/icons/Personal Info.svg";
 import MyItineraries from "../assets/icons/My Itineraries.svg";
 import Settings from "../assets/icons/Settings.svg";
 import Button from '../components/button/Button.jsx';
-import CustomButton from '../components/customButton/CustomButton.jsx';
-import {Body, Greeting, Logo, Title, Name, MyProfile, Line, ButtonGroup } from '../styled/styled-profile.jsx';
+import {Body, Greeting, Logo, Title, Name, MyProfile, Line, ButtonAway, ButtonMoreAway} from '../styled/styled-profile.jsx';
 
 
 
@@ -23,17 +22,18 @@ const Profile = () => {
             <MyProfile src={ProfileImg} alt="Profile"></MyProfile>
             <Name>Lara</Name>
             <Line src= {LineImg} alt="Line"></Line>
-            <ButtonGroup>
-            <CustomButton icon={PersonalInfo} nameButton="Personal Information" />
-            <CustomButton icon={MyItineraries} nameButton="My Itineraries" />
-            <CustomButton icon={Settings} nameButton="Settings" />
-            </ButtonGroup>
-            <ButtonGroup>
-            <Button  nameButton="Log Out" />
-            </ButtonGroup>
-            <ButtonGroup>
-            <Button nameButton="Search itinerary" />
-            </ButtonGroup>
+            <Button to="/personal-info" icon={PersonalInfo} nameButton="Personal Information" />
+            <Button to="/my-itineraries" icon={MyItineraries} nameButton="My Itineraries" />
+            <Button to="/settings" icon={Settings} nameButton="Settings" />
+            <ButtonAway>
+            <Button to="/logout" nameButton="Log Out" />
+            </ButtonAway>
+            <ButtonMoreAway>
+            <Button to="/search-itinerary" nameButton="Search itinerary" />
+            </ButtonMoreAway>
+         
+           
+        
     </Body>
         </>
     )

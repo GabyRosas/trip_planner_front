@@ -53,7 +53,7 @@ font-family: 'Inter', sans-serif;
 ` ;
 
 export const Greeting =  styled.h1`
-font-size: 14px;
+font-size: 15px;
 color: white;
 margin-bottom: 40px;
 font-family: 'Inter', sans-serif;
@@ -67,18 +67,28 @@ margin: 0;
 
 export const Line = styled.img`
 color: white;
-margin-bottom: 28px;
+margin-bottom: 40px;
 
 ` ;
 
-export const ButtonGroup = styled.div`
+
+export const ButtonAway = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 20px;
 width: 100%;
+max-width: 400px; 
+margin-top: 40px;
 
 `;
 
+export const ButtonMoreAway = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+max-width: 400px; 
+margin-top: 100px;
 
+`;
 
