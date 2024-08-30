@@ -3,8 +3,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from 'react-dom'
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
+import LoginForm from "../components/login/LoginForm";
+import RegisterFom from "../components/register/RegisterForm";
 import Form from "../pages/Form";
 import GlobalStyle from '../globalStyle'
+import Profile from "../pages/Profile";
 
 
 export const router = createBrowserRouter([
@@ -17,17 +20,29 @@ export const router = createBrowserRouter([
                 element: <Home />
             },
             {
+                path: "/login", 
+                element: <LoginForm />
+            },
+            {
+                path: "/register", 
+                element: <RegisterFom />
+            },
+            {
                 path: "/form",  
                 element: <Form />  
-            }
-        ]
-    }
+            },
+            {
+                path: "/profile",
+                element: <Profile/>
+            },
+        ],
+    },
 ]);
 
 ReactDOM.render(
     <React.StrictMode>
-      <GlobalStyle /> {/* Aplica los estilos globales */}
-      <RouterProvider router={router} /> {/* Proporciona el enrutador */}
+      <GlobalStyle /> 
+      <RouterProvider router={router} />
     </React.StrictMode>,
     document.getElementById('root')
 );
