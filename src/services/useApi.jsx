@@ -1,29 +1,41 @@
-import React, { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 
-const useApi = ({ apiEndpoint }) => {
+const useApi = ({ apiEndpoint, method = "GET" }) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!apiEndpoint) return;
+  // Función para manejar la solicitud API
+  const request = useCallback(
+    async (body = null) => {
+      setLoading(true);
+      setError(null);
 
-    axios
-      .get(apiEndpoint)
-      .then((response) => {
+      try {
+        const response = await axios({
+          url: apiEndpoint,
+          method,
+          data: body,
+        });
         setData(response.data);
-        console.log(response.data);
         setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
+        return response;
+      } catch (err) {
+        setError(err.response ? err.response.data : err.message);
         setLoading(false);
-        console.error(`Error fetching data: ${error.message}`);
-      });
-  }, [apiEndpoint]);
+        throw err; // Permite que el error sea manejado fuera del hook
+      }
+    },
+    [apiEndpoint, method]
+  );
 
-  return { data, loading, error };
+  return {
+    data,
+    loading,
+    error,
+    request,
+  };
 };
 
 export default useApi;
