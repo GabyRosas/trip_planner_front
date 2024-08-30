@@ -37,7 +37,7 @@ const LoginForm = () => {
       const response = await request(formData);
       // Almacenar el token en el almacenamiento local
       localStorage.setItem("token", response.data.token);
-      navigate("/dashboard"); // Redirige al usuario a la página de destino
+      navigate("/form"); // Redirige al usuario a la página de destino
     } catch (err) {
       console.error("Login error:", err);
     }
