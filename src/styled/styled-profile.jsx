@@ -52,7 +52,7 @@ margin-bottom: 40px;
 font-family: 'Inter', sans-serif;
 ` ;
 
-export const Greeting =  styled.h1`
+export const Greeting = styled.h1`
 font-size: 15px;
 color: white;
 margin-bottom: 40px;
