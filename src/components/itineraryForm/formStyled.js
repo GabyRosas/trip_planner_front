@@ -75,3 +75,20 @@ export const Label = styled.label`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: 'Inter', sans-serif
 `;
+
+export const StyledSelect = styled.select`
+    width: 100%;
+    padding: 12px 20px;  /* Igual que StyledInput */
+    margin: 10px 0;
+    border: 1px solid #336749;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #6C757D;
+
+    option[value=""][disabled] {
+        color: #6C757D;
+    }
+`;
+
+

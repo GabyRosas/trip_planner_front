@@ -10,6 +10,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = (e) => {
 e.preventDefault()
 // aqui hacemos la peticion al back
+navigate(`/form?username=${encodeURIComponent(username)}`);
 }
 return (
     <Container>
