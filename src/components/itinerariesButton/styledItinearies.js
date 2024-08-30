@@ -22,4 +22,4 @@ font-weight: bold;
 margin-bottom: 20px;
 gap: 10px;
 
-`;
+`; 
