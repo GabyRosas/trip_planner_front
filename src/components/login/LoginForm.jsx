@@ -57,11 +57,6 @@ const LoginForm = () => {
     return <p style={{ color: "red" }}>{error}</p>;
   };
 
-const handleSubmit = (e) => {
-e.preventDefault()
-// aqui hacemos la peticion al back
-navigate(`/form?username=${encodeURIComponent(username)}`);
-}
   return (
     <Container>
       <FormWrapper onSubmit={handleSubmit}>
