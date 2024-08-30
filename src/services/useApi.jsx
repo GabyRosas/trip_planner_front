@@ -13,11 +13,17 @@ const useApi = ({ apiEndpoint, method = "GET" }) => {
       setError(null);
 
       try {
+        const token = localStorage.getItem("token"); // Obtener el token del almacenamiento local
+
         const response = await axios({
           url: apiEndpoint,
           method,
           data: body,
+          headers: {
+            Authorization: token ? `Token ${token}` : "", // Añadir el token al header
+          },
         });
+
         setData(response.data);
         setLoading(false);
         return response;
