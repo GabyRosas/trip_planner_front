@@ -6,10 +6,9 @@ import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
 import RegisterFom from "../components/register/RegisterForm";
 import Form from "../pages/Form";
-import ButtonItineraries from "../components/itinerariesButton/ItinerariesButton";
 import GlobalStyle from '../globalStyle'
 import Profile from "../pages/Profile";
-
+import Itineraries from '../pages/Hitineraries';
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +33,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/itineraries",  
-                element: <ButtonItineraries />
+                element: <Itineraries />
             },
             {
                     path: "/profile",

@@ -1,23 +1,13 @@
-import { ItinerariesButton, ContainerItineraries } from "./styledItinearies";
-import { Body, Logo } from "../../styled/styled-home";
-import EarthLogoImage from '../../assets/images/EarthLogo.svg';
+import { ItinerariesButton } from "./styledItineraries";
 
 
-const ButtonItineraries = () => {
-    return (
-    <>
-    <Body>
-    <Logo src={EarthLogoImage} alt="Logo"></Logo>
-    <ContainerItineraries>
-    <ItinerariesButton>Barcelona,spring,3 days</ItinerariesButton>
-    <ItinerariesButton>Barcelona,spring,3 days</ItinerariesButton>
-    <ItinerariesButton>Barcelona,spring,3 days</ItinerariesButton>
-    <ItinerariesButton>Barcelona,spring,3 days</ItinerariesButton>
-    </ContainerItineraries>
-    </Body>
-    
-    </>
-    );
+
+const ButtonItineraries = ({destination, days }) => {
+return (
+<>
+<ItinerariesButton>{destination}, {days} days</ItinerariesButton>
+</>
+);
 };
 
 export default ButtonItineraries;
