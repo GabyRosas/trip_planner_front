@@ -14,8 +14,6 @@ import { API_BASE_URL } from "../../config/urls";
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
     username: "",
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
   });
@@ -70,20 +68,6 @@ const RegisterForm = () => {
           value={formData.username}
           onChange={handleChange}
           placeholder="Username"
-        />
-        <Input
-          type="text"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          placeholder="First Name"
-        />
-        <Input
-          type="text"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          placeholder="Last Name"
         />
         <Input
           type="email"
