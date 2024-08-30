@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Container,
-  FormWrapper,
-  Title,
-  Input,
-  Button,
-  LinkStyled,
-} from "../login/styled";
+import { Container, FormWrapper, Title, Input, Button, LinkStyled } from "../login/styled";
 import { useNavigate } from "react-router-dom";
 import useApi from "../../services/useApi";
 import { API_BASE_URL } from "../../config/urls";
@@ -37,7 +30,7 @@ const LoginForm = () => {
       const response = await request(formData);
       // Almacenar el token en el almacenamiento local
       localStorage.setItem("token", response.data.token);
-      navigate("/form");
+      navigate(`/form?username=${encodeURIComponent(formData.username)}`);
     } catch (err) {
       console.error("Login error:", err);
     }
@@ -57,11 +50,6 @@ const LoginForm = () => {
     return <p style={{ color: "red" }}>{error}</p>;
   };
 
-const handleSubmit = (e) => {
-e.preventDefault()
-// aqui hacemos la peticion al back
-navigate(`/form?username=${encodeURIComponent(username)}`);
-}
   return (
     <Container>
       <FormWrapper onSubmit={handleSubmit}>
