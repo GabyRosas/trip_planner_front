@@ -31,8 +31,7 @@ const Profile = () => {
             <ButtonMoreAway>
             <Button to="/search-itinerary" nameButton="Search itinerary" />
             </ButtonMoreAway>
-         
-           
+    
         
     </Body>
         </>
