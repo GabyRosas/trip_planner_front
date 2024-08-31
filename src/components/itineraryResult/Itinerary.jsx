@@ -1,40 +1,66 @@
-import React from "react";
-import EarthLogoImage from "../assets/images/EarthLogo.svg";
-import ProfileImg from "../assets/images/Photo.png";
-import LineImg from "../assets/images/Line 19.png";
-import PersonalInfo from "../../src/assets/icons/Personal Info.svg";
-import MyItineraries from "../assets/icons/My Itineraries.svg";
-import Settings from "../assets/icons/Settings.svg";
-import Button from "../components/button/Button.jsx";
-import {Body, Greeting, Logo, Title, Name, MyProfile, Line, ButtonAway, ButtonMoreAway,} from "../styled/styled-profile.jsx";
-
+import React from 'react';
+import {
+  Body,
+  InfoBar,
+  Title,
+  Logo,
+  ContentContainer,
+  DestinationImage,
+  Section,
+  SectionTitle,
+  Text,
+  ButtonContainer,
+  SmallButton
+} from '../components/itineraryResult/styledItinenary';
+import EarthLogo from '../assets/images/EarthLogo.svg'; 
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Itinerary = () => {
-  const { username, destination } = useParams(); // Obtener parámetros de la URL
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const username = queryParams.get('username') || 'user';
+
+  const handleLogoClick = () => {
+    navigate('/profile');
+  };
+
+  const handleBackClick = () => {
+    navigate('/form');
+  };
 
   return (
-    <Container>
-      <Header>
+    <Body>
+      <InfoBar>
         <Title>Hi, {username}</Title>
-        <Avatar src="/path_to_avatar_image.png" alt="User Avatar" />
-      </Header>
-      <main>
-        <DestinationImage src="/path_to_barcelona_image.jpg" alt={destination} />
-        <DestinationTitle>{destination}</DestinationTitle>
-        <Section className="summary">
-          <SectionTitle><i className="icon-destination"></i> Resumen del destino</SectionTitle>
-          <SectionText>{destination} is a beautiful city located in Catalunya, Spain.</SectionText>
+        <Logo 
+          src={EarthLogo} 
+          alt="Earth Logo" 
+          onClick={handleLogoClick}
+          style={{ cursor: 'pointer' }}
+        />
+      </InfoBar>
+
+      <ContentContainer>
+        <DestinationImage src="http://127.0.0.1:8000/api/v1/destination_app/" />
+        <Title style={{ margin: '15px 0' }}>Barcelona, Spain</Title>
+        
+        <Section>
+          <SectionTitle>Destination summary</SectionTitle>
+          <Text>Barcelona is a city located in Catalunya, Spain.</Text>
         </Section>
-        <Section className="itinerary">
-          <SectionTitle><i className="icon-itinerary"></i> Resumen del itinerario</SectionTitle>
-          <SectionText>During 2 days in {destination}, you can visit a lot of monuments...</SectionText>
+        
+        <Section>
+          <SectionTitle>Itinerary summary</SectionTitle>
+          <Text>During 2 days in BCN, you can visit a lot of monuments...</Text>
         </Section>
-      </main>
-      <Footer>
-        <Button className="back">Back</Button>
-        <Button className="save">Save</Button>
-      </Footer>
-    </Container>
+
+        <ButtonContainer>
+          <SmallButton onClick={handleBackClick}>Back</SmallButton>
+          <SmallButton>Save</SmallButton>
+        </ButtonContainer>
+      </ContentContainer>
+    </Body>
   );
 };
 

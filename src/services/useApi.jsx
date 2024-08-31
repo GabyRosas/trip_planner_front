@@ -1,41 +1,47 @@
-import React, { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
-import { API_BASE_URL } from "../config/urls";
 
-const UseApi = ({ endpoint }) => {
-  // Ahora acepta un endpoint como prop
+const useApi = ({ apiEndpoint, method = "GET" }) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const apiEndpoint = `${API_BASE_URL}${endpoint}`; // Usa el endpoint proporcionado
+  // Función para manejar la solicitud API
+  const request = useCallback(
+    async (body = null) => {
+      setLoading(true);
+      setError(null);
 
-    axios
-      .get(apiEndpoint)
-      .then((response) => {
+      try {
+        const token = localStorage.getItem("token"); // Obtener el token del almacenamiento local
+
+        const response = await axios({
+          url: apiEndpoint,
+          method,
+          data: body,
+          headers: {
+            Authorization: token ? `Token ${token}` : "", // Añadir el token al header
+          },
+        });
+
         setData(response.data);
         setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
+        return response;
+      } catch (err) {
+        setError(err.response ? err.response.data : err.message);
         setLoading(false);
-        console.error(`Error fetching data: ${error.message}`);
-      });
-  }, [endpoint]); // Dependencia añadida para recargar si cambia el endpoint
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-  return (
-    <div>
-      <h1>Data from API:</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+        throw err; // Permite que el error sea manejado fuera del hook
+      }
+    },
+    [apiEndpoint, method]
   );
+
+  return {
+    data,
+    loading,
+    error,
+    request,
+  };
 };
 
-export default UseApi;
+export default useApi;

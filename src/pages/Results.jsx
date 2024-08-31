@@ -1,17 +1,48 @@
 import React from 'react';
-import { BackgroundContainer, InfoBar, Title, Logo } from '../components/itineraryForm/formStyled';
-import ItineraryForm from '../components/itineraryForm/ItineraryForm';
+import { Body, InfoBar, Title, Logo, ContentContainer, Section, SectionTitle, Text, SmallButton, ButtonContainer } from '../components/itineraryResult/styledItinenary';
 import EarthLogo from '../assets/images/EarthLogo.svg'; 
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Itinerary = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+    const username = queryParams.get('username') || 'user';
+
+    const handleLogoClick = () => {
+      navigate('/profile');
+  };
+
+    const handleBackClick = () => {
+        navigate('/form');
+  };
+
   return (
-    <BackgroundContainer>
+    <Body>
       <InfoBar>
-        <Title>Hi, Lara</Title>
-        <Logo src={EarthLogo} alt="Earth Logo" />
+        <Title>Hi, {username}</Title>
+        <Logo 
+                    src={EarthLogo} 
+                    alt="Earth Logo" 
+                    onClick={handleLogoClick}
+                    style={{ cursor: 'pointer' }}
+                />
       </InfoBar>
-      <ItineraryForm />
-    </BackgroundContainer>
+      <ContentContainer>
+        <Section>
+            <SectionTitle>Destination summary</SectionTitle>
+            <Text>Barcelona is a city located in Catalunya, Spain.</Text>
+        </Section>
+        <Section>
+          <SectionTitle>Itinerary summary</SectionTitle>
+          <Text>During 2 days in BCN, you can visit a lot of monuments...</Text>
+        </Section>
+        <ButtonContainer>
+          <SmallButton onClick={handleBackClick}>Back</SmallButton>
+          <SmallButton>Save</SmallButton>
+        </ButtonContainer>
+      </ContentContainer>
+    </Body>
   );
 };
 

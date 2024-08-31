@@ -1,16 +1,18 @@
 import styled from 'styled-components';
-import BeachForm from '../../assets/images/BeachForm.png'; 
 
-export const BackgroundContainer = styled.div`
-  background-image: url(${BeachForm});
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+export const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  height: 100vh;
+  text-align: center;
+  background-color: #3E9CA7;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
   margin: 0;
+  position: relative;
+  background-size: cover;
 `;
 
 export const InfoBar = styled.div`
@@ -35,43 +37,51 @@ export const Logo = styled.img`
   height: 60px;
 `;
 
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
+export const ContentContainer = styled.div`
+  width: 300px;
   padding: 20px;
-`;
-
-export const StyledInput = styled.input`
-  width: 100%;
-  padding: 12px 20px;
-  margin: 10px 0;
-  border: 1px solid #336749;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.8);
-`;
-
-export const StyledButton = styled.button`
-  width: 100%;
-  padding: 12px;
-  background-color: #007A8C;
+  text-align: center;
   color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
   margin-top: 100px;
-  transition: background-color 0.3s ease;
 `;
 
-export const Label = styled.label`
+export const DestinationImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+`;
+
+export const Section = styled.div`
+  text-align: left;
+  margin-top: 150px;
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #33415C;
+`;
+
+export const Text = styled.p`
+  font-size: 14px;
   color: white;
-  font-size: 20px;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Inter', sans-serif
+  margin-top: 10px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+`;
+
+export const SmallButton = styled.button`
+  padding: 12px 45px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #007A8C
 `;
