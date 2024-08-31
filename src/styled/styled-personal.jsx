@@ -3,7 +3,7 @@ import Button from "../components/button/Button.jsx";
 import { Link } from 'react-router-dom';
 
 
-export const Title = styled.p`
+export const Greeting = styled.p`
 font-size: 18px;
 margin-top: 120px;
 font-family: 'Inter', sans-serif;
@@ -53,7 +53,7 @@ margin-bottom: 40px;
 font-family: 'Inter', sans-serif;
 ` ;
 
-export const Main = styled.p`
+export const Title = styled.p`
 font-size: 15px;
 color: white;
 margin-bottom: 40px;
