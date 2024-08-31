@@ -14,7 +14,12 @@ const Home = () => {
       <Logo src={EarthLogoImage} alt="Logo"></Logo>
       <TripPlanner src={TripPlannerLogo} alt="TripPlanner"></TripPlanner>
       <Title>Creating your perfect itinerary</Title>
-      <Button to="/login" nameButton="Get started"/>
+      <Button 
+        to="/login" 
+        nameButton="Get started"
+        backgroundColor="#FFFF"  
+        textColor="#007A8C"          
+      />
       <Img src={BallonsImage} alt="Ballons"></Img> 
       <Img src={MapImage} alt="Map"></Img>
       </Body>
