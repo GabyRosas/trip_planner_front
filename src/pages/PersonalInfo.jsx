@@ -4,9 +4,7 @@ import ProfileImg from "../assets/images/Photo.png";
 import LineImg from "../assets/images/Line 19.png";
 import Button from "../components/button/Button.jsx";
 import {Body, Title, Logo, Main, Name, MyProfile, Line, InfoBar} from "../styled/styled-personal.jsx";
-/*import { useNavigate } from "react-router-dom";
-import useApi from "../../services/useApi";
-import { API_BASE_URL } from "../../config/urls";*/
+
 
 const PersonalInfo = () => {
 <>
@@ -14,10 +12,10 @@ const PersonalInfo = () => {
 <InfoBar>
 <Title>Hi, {username}</Title>
 <Logo 
-            src={EarthLogo} 
-            alt="Earth Logo" 
-            onClick={handleLogoClick}
-            style={{ cursor: 'pointer' }}
+        src={EarthLogo} 
+        alt="Earth Logo" 
+        onClick={handleLogoClick}
+        style={{ cursor: 'pointer' }}
         />
 </InfoBar>
 <Main>Personal Information</Main>
