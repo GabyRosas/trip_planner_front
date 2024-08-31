@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Title = styled.p`
-font-size: 16PX;
+font-size: 16px;
 margin-bottom: 40px;
 font-family: 'Inter', sans-serif;
 `;
@@ -33,7 +33,7 @@ margin-top: 50px;
 
 export const TripPlanner = styled.img` 
 width: 250px;
-height: 100PX;
+height: 100px;
 ` ;
 
 export const Img = styled.img`
