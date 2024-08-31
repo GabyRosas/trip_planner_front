@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
 import RegisterFom from "../components/register/RegisterForm";
 import Form from "../pages/Form";
-import Itinerary from "../components/itinerary/Itinerary";
+import Itinerary from "../pages/Results";
 
 
 export const router = createBrowserRouter([
