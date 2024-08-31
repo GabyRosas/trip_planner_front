@@ -3,7 +3,7 @@ import EarthLogoImage from '../assets/images/EarthLogo.svg';
 import ProfileImg from "../assets/images/Photo.png";
 import LineImg from "../assets/images/Line 19.png";
 import Button from "../components/button/Button.jsx";
-import {Body, Title, Greeting, Logo, Name, MyProfile, Line, Input} from "../styled/styled-personal.jsx";
+import {Body, Title, Greeting, Logo, ProfileContainer, Name, MyProfile, Line, Input} from "../styled/styled-personal.jsx";
 import { useLocation } from "react-router-dom";
 
 const PersonalInfo = () => {
@@ -27,8 +27,10 @@ const [formData, setFormData] = useState({
 <Greeting><h1>Hi, {username}</h1></Greeting>
 <Logo src={EarthLogoImage} alt="Logo" />
 <Title>Personal Information</Title>
+<ProfileContainer>
 <MyProfile src={ProfileImg} alt="Profile" />
 <Name>Lara</Name>
+</ProfileContainer>
 <Line src={LineImg} alt="Line" />
 <Input
         type="text"
