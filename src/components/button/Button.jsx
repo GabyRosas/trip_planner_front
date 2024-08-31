@@ -1,5 +1,5 @@
-import React from 'react';
-import { But } from './styled-button';
+import React from "react";
+import { But } from "./styled-button";
 
 const Button = ({ to, icon, nameButton, backgroundColor, textColor }) => {
 return (
@@ -8,14 +8,17 @@ to={to}
 backgroundColor={backgroundColor} 
 textColor={textColor} 
 hasIcon={!!icon}
+  return (
+    <But
+      to={to}
+      backgroundColor={backgroundColor}
+      textColor={textColor}
+      hasIcon={!!icon}
     >
-{icon && <img src={icon} alt="icon" />}  
-{nameButton}
+      {icon && <img src={icon} alt="icon" />}
+      {nameButton}
     </But>
-);
+  );
 };
 
 export default Button;
-
-
-

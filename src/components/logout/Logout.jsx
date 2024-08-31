@@ -33,7 +33,7 @@ const Logout = () => {
     logout();
   }, [navigate]);
 
-  return null; // No es necesario renderizar nada en esta página
+  return null;
 };
 
 export default Logout;
