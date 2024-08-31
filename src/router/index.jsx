@@ -9,6 +9,7 @@ import Form from "../pages/Form";
 import GlobalStyle from "../globalStyle";
 import Profile from "../pages/Profile";
 import Logout from "../components/logout/Logout";
+import PersonalInfo from "../pages/PersonalInfo";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/logout",
         element: <Logout />,
+      },
+      {
+        path: "/personalinfo",
+        element: <PersonalInfo />,
       },
     ],
   },
