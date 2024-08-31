@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import BeachForm from '../../assets/images/BeachForm.png'; 
+import styled from "styled-components";
+import BeachForm from "../../assets/images/BeachForm.png";
 
 export const BackgroundContainer = styled.div`
   background-image: url(${BeachForm});
@@ -26,7 +26,7 @@ export const Title = styled.h1`
   color: white;
   font-size: 28px;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin-left: 15px;
 `;
 
@@ -57,7 +57,7 @@ export const StyledInput = styled.input`
 export const StyledButton = styled.button`
   width: 100%;
   padding: 12px;
-  background-color: #007A8C;
+  background-color: #007a8c;
   color: white;
   font-size: 16px;
   border: none;
@@ -73,5 +73,20 @@ export const Label = styled.label`
   margin-top: 25px;
   margin-bottom: 15px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Inter', sans-serif
+  font-family: "Inter", sans-serif;
+`;
+
+export const StyledSelect = styled.select`
+  width: 100%;
+  padding: 12px 20px; /* Igual que StyledInput */
+  margin: 10px 0;
+  border: 1px solid #336749;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #6c757d;
+
+  option[value=""][disabled] {
+    color: #6c757d;
+  }
 `;

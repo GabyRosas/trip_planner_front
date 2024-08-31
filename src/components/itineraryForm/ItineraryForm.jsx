@@ -1,31 +1,67 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { StyledForm, StyledInput, StyledButton, Label } from './formStyled';
+import React from "react";
+import { useForm } from "react-hook-form";
+import {
+  StyledForm,
+  StyledInput,
+  StyledSelect,
+  StyledButton,
+  Label,
+} from "./formStyled";
 
 const ItineraryForm = () => {
-    const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setError } = useForm();
 
-    const onSubmit = handleSubmit((values) => {
-        alert('Form submit: ' + JSON.stringify(values));
-    });
+  const validCities = [
+    "Barcelona",
+    "Ibiza",
+    "Santiago de Compostela",
+    "Sevilla",
+    "Oviedo",
+  ];
 
-    return (
-        <StyledForm onSubmit={onSubmit}>
-            <Label htmlFor="city">City</Label>
-            <StyledInput {...register('City', { required: true })} placeholder='Barcelona' />
+  const validateCity = (value) => {
+    if (!validCities.includes(value)) {
+      window.alert("This city is not available in our database");
+      return false;
+    }
+    return true;
+  };
 
-            <Label htmlFor="accommodation">Accommodation</Label>
-            <StyledInput {...register('Accommodation', { required: true })} placeholder='Hotel/Hostel/Apartment/B&B/Camping' />
+  const onSubmit = handleSubmit((values) => {
+    if (validateCity(values.City)) {
+      alert("Form submit: " + JSON.stringify(values));
+    } else {
+      setError("City", { type: "validate", message: "Invalid city" });
+    }
+  });
 
-            <Label htmlFor="activities">Favourite activities</Label>
-            <StyledInput {...register('Favourite activities', { required: true })} placeholder='Adventure/Cultural/Nature/Gastronomic/Relax' />
+  return (
+    <StyledForm onSubmit={onSubmit}>
+      <Label htmlFor="city">City</Label>
+      <StyledInput
+        {...register("City", {
+          required: "City is mandatory",
+        })}
+        placeholder="Barcelona"
+      />
 
-            <Label htmlFor="duration">Duration</Label>
-            <StyledInput {...register('Duration', { required: true })} placeholder='1 day/2 days/3 days' />
+      <Label htmlFor="duration">Duration</Label>
+      <StyledSelect
+        {...register("Duration", { required: "Duration is mandatory" })}
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Select number of days
+        </option>
+        <option value="1 day">1 day</option>
+        <option value="2 days">2 days</option>
+        <option value="3 days">3 days</option>
+      </StyledSelect>
 
-            <StyledButton type='submit'>Generate itinerary</StyledButton>
-        </StyledForm>
-    );
+      <StyledButton type="submit">Generate itinerary</StyledButton>
+    </StyledForm>
+  );
 };
 
 export default ItineraryForm;
+

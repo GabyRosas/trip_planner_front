@@ -1,11 +1,12 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; // Cambiado a 'react-dom/client'
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
-import RegisterFom from "../components/register/RegisterForm";
+import RegisterForm from "../components/register/RegisterForm"; // Corregido el nombre del componente
 import Form from "../pages/Form";
+import Itinerary from "../pages/Results";
 import GlobalStyle from "../globalStyle";
 import Profile from "../pages/Profile";
 import Logout from "../components/logout/Logout";
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "/", // Esta ruta se hereda de la ruta principal
         element: <Home />,
       },
       {
@@ -26,11 +27,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <RegisterFom />,
+        element: <RegisterForm />, // Corregido el nombre del componente
       },
       {
         path: "/form",
         element: <Form />,
+      },
+      {
+        path: "/results",
+        element: <Itinerary />,
       },
       {
         path: "/profile",
@@ -48,10 +53,10 @@ export const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
+  // Cambiado a 'createRoot'
   <React.StrictMode>
     <GlobalStyle />
     <RouterProvider router={router} />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

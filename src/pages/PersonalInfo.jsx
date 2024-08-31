@@ -3,22 +3,16 @@ import EarthLogo from '../assets/images/EarthLogo.svg';
 import ProfileImg from "../assets/images/Photo.png";
 import LineImg from "../assets/images/Line 19.png";
 import Button from "../components/button/Button.jsx";
-import {Body, Title, Logo, Main, Name, MyProfile, Line, InfoBar} from "../styled/styled-personal.jsx";
-
+import {Body, Title, Greeting, Logo, Name, MyProfile, Line} from "../styled/styled-personal.jsx";
+import { useLocation } from "react-router-dom";
 
 const PersonalInfo = () => {
+                const username = localStorage.getItem("username") || "User";
 <>
 <Body>
-<InfoBar>
-<Title>Hi, {username}</Title>
-<Logo 
-        src={EarthLogo} 
-        alt="Earth Logo" 
-        onClick={handleLogoClick}
-        style={{ cursor: 'pointer' }}
-        />
-</InfoBar>
-<Main>Personal Information</Main>
+<Greeting><h1>Hi, {username}</h1></Greeting>
+<Logo src={EarthLogoImage} alt="Logo" />
+<Title>Personal Information</Title>
 <MyProfile src={ProfileImg} alt="Profile" />
 <Name>Lara</Name>
 <Line src={LineImg} alt="Line" />
