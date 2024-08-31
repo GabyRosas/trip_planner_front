@@ -8,7 +8,7 @@ import RegisterFom from "../components/register/RegisterForm";
 import Form from "../pages/Form";
 import GlobalStyle from "../globalStyle";
 import Profile from "../pages/Profile";
-import Logout from "../components/logout/Logout";import Itineraries from '../pages/Hitineraries';
+import Logout from "../components/logout/Logout";import Itineraries from '../pages/Itineraries';
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         element: <Form />,
       },
             {
-                path: "/itineraries",  
+                path: "/itinerary",  
                 element: <Itineraries />
             },
       {

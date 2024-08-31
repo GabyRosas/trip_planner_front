@@ -4,7 +4,7 @@ import { But } from './styled-button';
 const Button = ({ to, icon, nameButton, backgroundColor, textColor }) => {
 return (
 <But 
-href={to} 
+to={to} 
 backgroundColor={backgroundColor} 
 textColor={textColor} 
 hasIcon={!!icon}
