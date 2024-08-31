@@ -19,6 +19,7 @@ import {
 } from "../styled/styled-profile.jsx";
 import { useLocation } from "react-router-dom";
 
+
 const Profile = () => {
   const username = localStorage.getItem("username") || "User";
 
