@@ -1,10 +1,10 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client"; // Cambiado a 'react-dom/client'
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
-import RegisterFom from "../components/register/RegisterForm";
+import RegisterForm from "../components/register/RegisterForm"; // Corregido el nombre del componente
 import Form from "../pages/Form";
 import Itinerary from "../pages/Results";
 import GlobalStyle from "../globalStyle";
@@ -17,45 +17,41 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <Layout />,
-        children: [
-            {
-                path: "/",
-                element: <Home />
-            },
-            {
-                path: "/login", 
-                element: <LoginForm />
-            },
-            {
-                path: "/register", 
-                element: <RegisterFom />
-            },
-            {
-                path: "/form",  
-                element: <Form />  
-            },
-            {
-                path: "/results",  
-                element: <Itinerary />  
-             },
-             {
-                path: "/profile",
-                element: <Profile />,
-             },
-             {
-                path: "/logout",
-                element: <Logout />,
-            },
-        ],
-    },
+        path: "/", // Esta ruta se hereda de la ruta principal
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <LoginForm />,
+      },
+      {
+        path: "/register",
+        element: <RegisterForm />, // Corregido el nombre del componente
+      },
+      {
+        path: "/form",
+        element: <Form />,
+      },
+      {
+        path: "/results",
+        element: <Itinerary />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/logout",
+        element: <Logout />,
+      },
+    ],
+  },
 ]);
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
+  // Cambiado a 'createRoot'
   <React.StrictMode>
     <GlobalStyle />
     <RouterProvider router={router} />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
