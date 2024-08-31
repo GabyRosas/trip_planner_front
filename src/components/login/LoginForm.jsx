@@ -37,6 +37,7 @@ const LoginForm = () => {
       const response = await request(formData);
       // Almacenar el token en el almacenamiento local
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", formData.username);
       navigate(`/form?username=${encodeURIComponent(formData.username)}`);
     } catch (err) {
       console.error("Login error:", err);

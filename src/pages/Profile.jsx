@@ -17,18 +17,21 @@ import {
   ButtonAway,
   ButtonMoreAway,
 } from "../styled/styled-profile.jsx";
+import { useLocation } from "react-router-dom";
 
 const Profile = () => {
+  const username = localStorage.getItem("username") || "User";
+
   return (
     <>
       <Body>
         <Greeting>
-          <h1>Hi, Lara</h1>
+          <h1>Hi, {username}</h1>
         </Greeting>
         <Logo src={EarthLogoImage} alt="Logo" />
         <Title>Profile</Title>
         <MyProfile src={ProfileImg} alt="Profile" />
-        <Name>Lara</Name>
+        <Name>{username}</Name>
         <Line src={LineImg} alt="Line" />
         <Button
           to="/personal-info"
