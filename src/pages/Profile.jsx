@@ -30,9 +30,9 @@ const Profile = () => {
           nameButton="Personal Information"
         />
         <Button
-          to="/my-itineraries"
+          to="/favorites"
           icon={MyItineraries}
-          nameButton="My Itineraries"
+          nameButton="My favorites"
         />
         <Button to="/settings" icon={Settings} nameButton="Settings" />
         <ButtonAway>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContainerItineraries = styled.div`
@@ -8,7 +9,7 @@ gap: 20px;
 
 `;
 
-export const ItinerariesButton = styled.button`
+export const ItinerariesButton = styled(Link)`
 padding: 15px 80px;
 font-size: 16px;
 color: #007A8C;

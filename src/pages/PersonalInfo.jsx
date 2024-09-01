@@ -63,8 +63,7 @@ const [formData, setFormData] = useState({
 <Button to="/save changes" nameButton="Save Changes" />
 </Body>
 </>
-                )
-
+)
 };
 
 export default PersonalInfo;
