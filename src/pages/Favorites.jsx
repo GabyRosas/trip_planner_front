@@ -5,9 +5,6 @@ import EarthLogo from '../assets/images/EarthLogo.svg';
 import { Name, MyProfile, Line, Titles, Body } from "../styled/styled-profile";
 import ProfileImg from "../assets/images/Photo.png";
 import LineImg from "../assets/images/Line 19.png";
-//import { useLocation, useNavigate } from "react-router-dom";
-//import { API_BASE_URL } from "../config/urls";
-//import useApi from "../../services/useApi";
 
 
 const Favorites = () => {
@@ -24,7 +21,7 @@ const Favorites = () => {
         <MyProfile src={ProfileImg} alt="MyFavorites" />
         <Name>HI {username}</Name>
         <Line src={LineImg} alt="Line" />
-        <ButtonItineraries destination="madrid" days="3 dias" />
+        <ButtonItineraries to="/results" destination="madrid" days="3 dias" />
         </Body>
     </>
     );

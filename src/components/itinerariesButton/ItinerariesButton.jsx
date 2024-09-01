@@ -2,10 +2,10 @@ import { ItinerariesButton } from "./styledItineraries";
 
 
 
-const ButtonItineraries = ({destination, days }) => {
+const ButtonItineraries = ({to, destination, days }) => {
 return (
 <>
-<ItinerariesButton>{destination}, {days} days</ItinerariesButton>
+<ItinerariesButton to={to}  destination={destination}  days={days} >days</ItinerariesButton>
 </>
 );
 };

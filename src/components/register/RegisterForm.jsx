@@ -35,7 +35,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await request(formData); // Envía formData como body
+      await request(formData); 
       navigate("/login");
     } catch (err) {
       console.error("Registration error:", err);
@@ -44,7 +44,6 @@ const RegisterForm = () => {
 
   const renderError = () => {
     if (!error) return null;
-    // Si error es un objeto, convertirlo a string o mostrar solo el mensaje relevante
     if (typeof error === "object") {
       return (
         <ul style={{ color: "red" }}>
