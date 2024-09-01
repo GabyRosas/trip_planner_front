@@ -8,21 +8,21 @@ const Itinerary = () => {
     const location = useLocation();
     const { state } = location;
 
-    // Asumimos que `state` contiene la información del itinerario
     const itinerary = state?.itinerary;
+    const destination = state?.destination;
 
     const username = localStorage.getItem("username") || "User";
 
     const handleLogoClick = () => {
-      navigate('/profile');
+        navigate('/profile');
     };
 
     const handleBackClick = () => {
         navigate('/form');
     };
 
-    if (!itinerary) {
-        return <div>No itinerary details available</div>; // Manejo de error si no hay detalles
+    if (!itinerary || !destination) {
+        return <div>No itinerary or destination details available</div>; 
     }
 
     return (
@@ -39,7 +39,7 @@ const Itinerary = () => {
             <ContentContainer>
                 <Section>
                     <SectionTitle>Destination summary</SectionTitle>
-                    <Text>{itinerary.destination?.description || 'No description available'}</Text> {/* Descripción del destino */}
+                    <Text>{destination.description || 'No description available'}</Text> {/* Descripción del destino */}
                 </Section>
                 <Section>
                     <SectionTitle>Itinerary summary</SectionTitle>
