@@ -37,16 +37,18 @@ const ItineraryForm = () => {
 
   return (
     <StyledForm onSubmit={onSubmit}>
-      <Label htmlFor="city">City</Label>
+      <Label htmlFor="City">City</Label>
       <StyledInput
+        id="City"
         {...register("City", {
           required: "City is mandatory",
         })}
         placeholder="Barcelona"
       />
 
-      <Label htmlFor="duration">Duration</Label>
+      <Label htmlFor="Duration">Duration</Label>
       <StyledSelect
+        id="Duration"
         {...register("Duration", { required: "Duration is mandatory" })}
         defaultValue=""
       >
@@ -64,4 +66,3 @@ const ItineraryForm = () => {
 };
 
 export default ItineraryForm;
-
