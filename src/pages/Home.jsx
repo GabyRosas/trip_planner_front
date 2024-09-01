@@ -15,7 +15,7 @@ const Home = () => {
       <TripPlanner src={TripPlannerLogo} alt="TripPlanner"></TripPlanner>
       <Title>Creating your perfect itinerary</Title>
       <Button 
-        to="/login" 
+        href ="/login" 
         nameButton="Get started"
         backgroundColor="#FFFF"  
         textColor="#007A8C"          

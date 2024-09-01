@@ -1,23 +1,22 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReactDOM from "react-dom/client"; // Cambiado a 'react-dom/client'
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import LoginForm from "../components/login/LoginForm";
-import RegisterForm from "../components/register/RegisterForm"; // Corregido el nombre del componente
+import RegisterForm from "../components/register/RegisterForm";
 import Form from "../pages/Form";
 import Itinerary from "../pages/Results";
-import GlobalStyle from "../globalStyle";
 import Profile from "../pages/Profile";
-import Logout from "../components/logout/Logout";import Itineraries from '../pages/Itineraries';
-
+import Logout from "../components/logout/Logout";
+import PersonalInfo from "../pages/PersonalInfo";
+import Favorites from "../pages/Favorites";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       {
-        path: "/", // Esta ruta se hereda de la ruta principal
+        path: "/",
         element: <Home />,
       },
       {
@@ -26,20 +25,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <RegisterForm />, // Corregido el nombre del componente
+        element: <RegisterForm />, 
       },
       {
         path: "/form",
         element: <Form />,
       },
-            {
-                path: "/itinerary",  
-                element: <Itineraries />
-            },
       {
-            path: "/profile",
-            element: <Profile />,
-
         path: "/results",
         element: <Itinerary />,
       },
@@ -50,15 +42,16 @@ export const router = createBrowserRouter([
       {
         path: "/logout",
         element: <Logout />,
-      },  
+      },
+      {
+        path: "/personalInfo",
+        element: <PersonalInfo />,
+      },
+      {
+        path: "/favorites",
+        element: <Favorites />,
+      },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  // Cambiado a 'createRoot'
-  <React.StrictMode>
-    <GlobalStyle />
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);

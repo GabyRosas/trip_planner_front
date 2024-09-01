@@ -6,18 +6,7 @@ import PersonalInfo from "../../src/assets/icons/Personal Info.svg";
 import MyItineraries from "../assets/icons/My Itineraries.svg";
 import Settings from "../assets/icons/Settings.svg";
 import Button from "../components/button/Button.jsx";
-import {Body, Greeting, Logo, Titles, Name, MyProfile, Line, ButtonAway, ButtonMoreAway,} from "../styled/styled-profile.jsx";
-import {
-  Body,
-  Greeting,
-  Logo,
-  Title,
-  Name,
-  MyProfile,
-  Line,
-  ButtonAway,
-  ButtonMoreAway,
-} from "../styled/styled-profile.jsx";
+import {Body, Greeting, Logo, Titles, Name, MyProfile, Line, ButtonAway, ButtonMoreAway} from "../styled/styled-profile.jsx";
 import { useLocation } from "react-router-dom";
 
 
