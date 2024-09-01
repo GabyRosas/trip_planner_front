@@ -2,10 +2,11 @@ import styled from "styled-components";
 import Button from "../components/button/Button.jsx";
 
 
-export const Title = styled.p`
-font-size: 18px;
+export const Titles = styled.p`
+font-size: 28px;
 margin-top: 120px;
 font-family: 'Inter', sans-serif;
+font-weight: bold;
 color: #33415C;
 `;
 
