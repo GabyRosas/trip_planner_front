@@ -19,6 +19,10 @@ const Form = () => {
     navigate("/profile");
   };
 
+  const handleValidSubmit = () => {
+    navigate('/results');
+  };
+
   return (
     <BackgroundContainer>
       <InfoBar>
@@ -30,7 +34,7 @@ const Form = () => {
           style={{ cursor: "pointer" }}
         />
       </InfoBar>
-      <ItineraryForm />
+      <ItineraryForm onValidSubmit={handleValidSubmit} />
     </BackgroundContainer>
   );
 };
