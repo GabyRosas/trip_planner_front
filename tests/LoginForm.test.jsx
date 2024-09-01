@@ -1,4 +1,3 @@
-// tests/ComponentTests.jsx
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
@@ -7,7 +6,6 @@ import LoginForm from "../src/components/login/LoginForm";
 import "@testing-library/jest-dom/vitest";
 import { MemoryRouter } from "react-router-dom";
 
-// Tests for LoginForm
 describe("LoginForm Component", () => {
   it("renders the form fields correctly", () => {
     render(
