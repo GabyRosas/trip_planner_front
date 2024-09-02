@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import useApi from "../../services/useApi";
 import { API_BASE_URL } from "../../config/urls";
 
+
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -35,7 +36,6 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await request(formData);
-      // Almacenar el token en el almacenamiento local
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", formData.username);
       navigate(`/form?username=${encodeURIComponent(formData.username)}`);

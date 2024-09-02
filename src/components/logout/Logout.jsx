@@ -11,21 +11,16 @@ const Logout = () => {
       try {
         const token = localStorage.getItem("token");
 
-        // Hacer la solicitud de logout al backend
         await axios.post(`${API_BASE_URL}logout/`, null, {
           headers: {
             Authorization: token ? `Token ${token}` : "",
           },
         });
-
-        // Eliminar el token del almacenamiento local
         localStorage.removeItem("token");
 
-        // Redirigir al usuario a la página de login
         navigate("/login");
       } catch (err) {
         console.error("Logout error:", err);
-        // En caso de error, redirigir al usuario a la página de login de todos modos
         navigate("/login");
       }
     };

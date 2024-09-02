@@ -6,7 +6,6 @@ const useApi = ({ apiEndpoint, method = "GET" }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Función para manejar la solicitud API
   const request = useCallback(
     async (body = null) => {
       setLoading(true);
