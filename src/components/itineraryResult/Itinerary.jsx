@@ -18,8 +18,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Itinerary = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const queryParams = new URLSearchParams(location.search);
-  const username = queryParams.get('username') || 'user';
+  const { state } = location;
+  const itinerary = state?.itinerary; // Obtener los detalles del itinerario del estado
 
   const handleLogoClick = () => {
     navigate('/profile');
@@ -29,10 +29,14 @@ const Itinerary = () => {
     navigate('/form');
   };
 
+  if (!itinerary) {
+    return <div>No itinerary details available</div>; // Manejo de error si no hay detalles
+  }
+
   return (
     <Body>
       <InfoBar>
-        <Title>Hi, {username}</Title>
+        <Title>Hi, {itinerary.user || 'User'}</Title>
         <Logo 
           src={EarthLogo} 
           alt="Earth Logo" 
@@ -42,17 +46,17 @@ const Itinerary = () => {
       </InfoBar>
 
       <ContentContainer>
-        <DestinationImage src="http://127.0.0.1:8000/api/v1/destination_app/" />
-        <Title style={{ margin: '15px 0' }}>Barcelona, Spain</Title>
+        <DestinationImage src={itinerary.destination.image || 'default-image.jpg'} alt={itinerary.destination.name} />
+        <Title style={{ margin: '15px 0' }}>{itinerary.destination.name}, {itinerary.destination.country}</Title>
         
         <Section>
           <SectionTitle>Destination summary</SectionTitle>
-          <Text>Barcelona is a city located in Catalunya, Spain.</Text>
+          <Text>{itinerary.destination.description}</Text> {/* Descripción del destino */}
         </Section>
         
         <Section>
           <SectionTitle>Itinerary summary</SectionTitle>
-          <Text>During 2 days in BCN, you can visit a lot of monuments...</Text>
+          <Text>{itinerary.description}</Text> {/* Descripción del itinerario */}
         </Section>
 
         <ButtonContainer>

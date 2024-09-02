@@ -4,46 +4,54 @@ import EarthLogo from '../assets/images/EarthLogo.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Itinerary = () => {
-    const location = useLocation();
     const navigate = useNavigate();
-    const queryParams = new URLSearchParams(location.search);
-    const username = queryParams.get('username') || 'user';
+    const location = useLocation();
+    const { state } = location;
+
+    const itinerary = state?.itinerary;
+    const destination = state?.destination;
+
+    const username = localStorage.getItem("username") || "User";
 
     const handleLogoClick = () => {
-      navigate('/profile');
-  };
+        navigate('/profile');
+    };
 
     const handleBackClick = () => {
         navigate('/form');
-  };
+    };
 
-  return (
-    <Body>
-      <InfoBar>
-        <Title>Hi, {username}</Title>
-        <Logo 
+    if (!itinerary || !destination) {
+        return <div>No itinerary or destination details available</div>; 
+    }
+
+    return (
+        <Body>
+            <InfoBar>
+                <Title>Hi, {username}</Title>
+                <Logo 
                     src={EarthLogo} 
                     alt="Earth Logo" 
                     onClick={handleLogoClick}
                     style={{ cursor: 'pointer' }}
                 />
-      </InfoBar>
-      <ContentContainer>
-        <Section>
-            <SectionTitle>Destination summary</SectionTitle>
-            <Text>Barcelona is a city located in Catalunya, Spain.</Text>
-        </Section>
-        <Section>
-          <SectionTitle>Itinerary summary</SectionTitle>
-          <Text>During 2 days in BCN, you can visit a lot of monuments...</Text>
-        </Section>
-        <ButtonContainer>
-          <SmallButton onClick={handleBackClick}>Back</SmallButton>
-          <SmallButton>Save</SmallButton>
-        </ButtonContainer>
-      </ContentContainer>
-    </Body>
-  );
+            </InfoBar>
+            <ContentContainer>
+                <Section>
+                    <SectionTitle>Destination summary</SectionTitle>
+                    <Text>{destination.description || 'No description available'}</Text> {/* Descripción del destino */}
+                </Section>
+                <Section>
+                    <SectionTitle>Itinerary summary</SectionTitle>
+                    <Text>{itinerary.description || 'No description available'}</Text> {/* Descripción del itinerario */}
+                </Section>
+                <ButtonContainer>
+                    <SmallButton onClick={handleBackClick}>Back</SmallButton>
+                    <SmallButton>Save</SmallButton>
+                </ButtonContainer>
+            </ContentContainer>
+        </Body>
+    );
 };
 
 export default Itinerary;

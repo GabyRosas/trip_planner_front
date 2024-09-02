@@ -39,7 +39,7 @@ const Profile = () => {
           <Button to="/logout" nameButton="Log Out" />
         </ButtonAway>
         <ButtonMoreAway>
-          <Button to="/search-itinerary" nameButton="Search itinerary" />
+          <Button to="/form" nameButton="Search itinerary" />
         </ButtonMoreAway>
       </Body>
     </>
