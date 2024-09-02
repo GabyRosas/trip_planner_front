@@ -62,7 +62,7 @@ const Itinerary = () => {
 
         {/* Descripción del itinerario */}
         <Section>
-          <SectionTitle>Tu itinerario</SectionTitle>
+          <SectionTitle>Your itinerary</SectionTitle>
           <Text>{itinerary.description || "No description available"}</Text>
         </Section>
 
