@@ -12,14 +12,14 @@ const useApi = ({ apiEndpoint, method = "GET" }) => {
       setError(null);
 
       try {
-        const token = localStorage.getItem("token"); // Obtener el token del almacenamiento local
+        const token = localStorage.getItem("token");
 
         const response = await axios({
           url: apiEndpoint,
           method,
           data: body,
           headers: {
-            Authorization: token ? `Token ${token}` : "", // Añadir el token al header
+            Authorization: token ? `Token ${token}` : "",
           },
         });
 
@@ -29,7 +29,7 @@ const useApi = ({ apiEndpoint, method = "GET" }) => {
       } catch (err) {
         setError(err.response ? err.response.data : err.message);
         setLoading(false);
-        throw err; // Permite que el error sea manejado fuera del hook
+        throw err;
       }
     },
     [apiEndpoint, method]

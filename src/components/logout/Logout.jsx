@@ -16,11 +16,13 @@ const Logout = () => {
             Authorization: token ? `Token ${token}` : "",
           },
         });
+
         localStorage.removeItem("token");
 
         navigate("/login");
       } catch (err) {
         console.error("Logout error:", err);
+
         navigate("/login");
       }
     };
