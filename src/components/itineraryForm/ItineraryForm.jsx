@@ -110,16 +110,16 @@ const ItineraryForm = () => {
       <Label htmlFor="city">City</Label>
 
       <StyledInput
-        id="City"
+        id="city"
         {...register("City", {
           required: "City is mandatory",
         })}
         placeholder="Barcelona"
       />
 
-      <Label htmlFor="Duration">Duration</Label>
+      <Label htmlFor="duration">Duration</Label>
       <StyledSelect
-        id="Duration"
+        id="duration"
         {...register("Duration", { required: "Duration is mandatory" })}
         defaultValue=""
       >
