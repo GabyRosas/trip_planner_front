@@ -9,17 +9,21 @@ import {
   Section,
   SectionTitle,
   Text,
-  ButtonContainer,
   SmallButton,
+  ButtonContainer,
 } from "../components/itineraryResult/styledItinenary";
 import EarthLogo from "../assets/images/EarthLogo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Itinerary = () => {
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
   const { state } = location;
+
   const itinerary = state?.itinerary;
+  const destination = state?.destination;
+
+  const username = localStorage.getItem("username") || "User";
 
   const handleLogoClick = () => {
     navigate("/profile");
@@ -29,14 +33,14 @@ const Itinerary = () => {
     navigate("/form");
   };
 
-  if (!itinerary) {
-    return <div>No itinerary details available</div>;
+  if (!itinerary || !destination) {
+    return <div>No itinerary or destination details available</div>;
   }
 
   return (
     <Body>
       <InfoBar>
-        <Title>Hi, {itinerary.user || "User"}</Title>
+        <Title>Hi, {username}</Title>
         <Logo
           src={EarthLogo}
           alt="Earth Logo"
@@ -44,28 +48,25 @@ const Itinerary = () => {
           style={{ cursor: "pointer" }}
         />
       </InfoBar>
-
       <ContentContainer>
-        <DestinationImage
-          src={itinerary.destination.image || "default-image.jpg"}
-          alt={itinerary.destination.name}
-        />
-        <Title style={{ margin: "15px 0" }}>
-          {itinerary.destination.name}, {itinerary.destination.country}
-        </Title>
+        {/* Aquí mostramos la imagen del destino */}
+        {destination.image && (
+          <DestinationImage src={destination.image} alt={destination.name} />
+        )}
 
+        {/* Descripción del destino */}
         <Section>
-          <SectionTitle>Destination summary</SectionTitle>
-          <Text>{itinerary.destination.description}</Text>{" "}
-          {/* Descripción del destino */}
+          <SectionTitle>{destination.name}</SectionTitle>
+          <Text>{destination.description || "No description available"}</Text>
         </Section>
 
+        {/* Descripción del itinerario */}
         <Section>
-          <SectionTitle>Itinerary summary</SectionTitle>
-          <Text>{itinerary.description}</Text>{" "}
-          {/* Descripción del itinerario */}
+          <SectionTitle>Tu itinerario</SectionTitle>
+          <Text>{itinerary.description || "No description available"}</Text>
         </Section>
 
+        {/* Botones de acción */}
         <ButtonContainer>
           <SmallButton onClick={handleBackClick}>Back</SmallButton>
           <SmallButton>Save</SmallButton>
